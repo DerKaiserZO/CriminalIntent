@@ -22,6 +22,8 @@ public class CrimeListFragment extends Fragment {
     private RecyclerView mCrimeRecyclerView;
     private CrimeAdapter mAdapter;
 
+
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +49,14 @@ public class CrimeListFragment extends Fragment {
         private TextView mTitleTextView;
         private TextView mDateTextView;
         private CheckBox mSolvedCheckBox;
+        private Crime mCrime;
+
+        public void bindCrime(Crime crime) {
+            mCrime = crime;
+            mTitleTextView.setText(mCrime.getTitle());
+            mDateTextView.setText(mCrime.getDate().toString());
+            mSolvedCheckBox.setChecked(mCrime.isSolved());
+        }
 
         public CrimeHolder(View itemView) {
             super(itemView);
@@ -74,9 +84,7 @@ public class CrimeListFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull CrimeHolder holder, int position) {
             Crime crime = mCrimes.get(position);
-            holder.mTitleTextView.setText(crime.getTitle());
-            holder.mDateTextView.setText(crime.getDate().toString());
-            holder.mSolvedCheckBox.setChecked(crime.isSolved());
+            holder.bindCrime(crime);
         }
 
         @Override
