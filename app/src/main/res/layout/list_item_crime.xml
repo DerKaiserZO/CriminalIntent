@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
 
     <CheckBox
         android:id="@+id/list_item_crime_check_box"
@@ -10,7 +8,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:padding="4dp"
-        />
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/list_item_crime_text_view"
@@ -19,7 +17,7 @@
         android:layout_height="wrap_content"
         android:padding="4dp"
         android:text="Crime Title"
-        />
+        android:layout_toStartOf="@id/list_item_crime_check_box" />
 
     <TextView
         android:id="@+id/list_item_crime_date_view"
@@ -29,6 +27,6 @@
         android:layout_below="@id/list_item_crime_text_view"
         android:padding="4dp"
         android:text="Crime Date"
-        />
+        android:layout_toStartOf="@id/list_item_crime_check_box" />
 
 </RelativeLayout>
